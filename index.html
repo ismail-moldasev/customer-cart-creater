@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Создание карточек</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Моментальное создание карточек</p>
+        <h1>Заполните данные и получите готовую карточку клиента или продавца</h1>
+        <p class="lede">Укажите роль, контактные данные и детали оплаты или предложения — карточка появится мгновенно на этой странице.</p>
+        <div class="hero__actions">
+          <span class="pill">Красиво • Быстро • Удобно</span>
+          <span class="pill pill--ghost">Без перезагрузки страницы</span>
+        </div>
+      </div>
+      <div class="hero__summary">
+        <p class="summary__title">Что умеет сервис</p>
+        <ul>
+          <li>Создание карточек для клиентов и продавцов</li>
+          <li>Выбор роли, имени, возраста, пола и суммы/объёма</li>
+          <li>Хранение нескольких карточек в одном списке</li>
+          <li>Красивое оформление с акцентами и тенью</li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <p class="eyebrow">Шаг 1</p>
+            <h2>Заполните форму</h2>
+            <p class="hint">Все поля можно редактировать — карточки обновятся сразу после нажатия на кнопку.</p>
+          </div>
+          <div class="counter" id="card-counter">0 карточек</div>
+        </div>
+
+        <form id="profile-form" class="form" autocomplete="on">
+          <div class="form__group">
+            <label for="role">Роль</label>
+            <div class="segmented">
+              <label class="segmented__option">
+                <input type="radio" name="role" value="client" checked />
+                <span>Клиент</span>
+              </label>
+              <label class="segmented__option">
+                <input type="radio" name="role" value="seller" />
+                <span>Продавец</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__group">
+              <label for="name">Имя</label>
+              <input id="name" name="name" type="text" placeholder="Например, Анна Иванова" required />
+            </div>
+            <div class="form__group">
+              <label for="age">Возраст</label>
+              <input id="age" name="age" type="number" min="0" max="120" placeholder="28" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__group">
+              <label for="gender">Пол</label>
+              <select id="gender" name="gender">
+                <option value="">Не указан</option>
+                <option value="Женский">Женский</option>
+                <option value="Мужской">Мужской</option>
+                <option value="Другое">Другое</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label for="phone">Телефон</label>
+              <input id="phone" name="phone" type="tel" placeholder="+7 (999) 555-55-55" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__group">
+              <label for="amount">Сумма оплаты или объём поставки</label>
+              <input id="amount" name="amount" type="text" placeholder="Например, 150 000 ₽ или 250 кг" />
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label for="notes">Дополнительно</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Комментарий, пожелания, детали сделки"></textarea>
+          </div>
+
+          <div class="form__actions">
+            <button type="submit" class="primary">Создать карточку</button>
+            <button type="reset" class="ghost" id="reset-list">Очистить список</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <p class="eyebrow">Шаг 2</p>
+            <h2>Просмотрите карточки</h2>
+            <p class="hint">Каждое нажатие на «Создать карточку» добавляет новую запись в список ниже.</p>
+          </div>
+          <div class="badge" aria-live="polite">Превью обновляется автоматически</div>
+        </div>
+        <div id="cards" class="cards" aria-live="polite">
+          <div class="empty-state">
+            <p>Пока нет карточек</p>
+            <p class="hint">Заполните форму, чтобы добавить первую карточку.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
