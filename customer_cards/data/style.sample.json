@@ -1,0 +1,10 @@
+{
+  "background_color": "#fffdf9",
+  "text_color": "#1e1b16",
+  "accent_color": "#c0392b",
+  "border_radius": "16px",
+  "font_family": "'Manrope', 'Inter', system-ui, sans-serif",
+  "card_width": "340px",
+  "shadow": "0 12px 30px rgba(0,0,0,0.12)",
+  "header_text": "Заказы по мясу"
+}
